@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import Header from "./components/Header/Header";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+// import Login from "./pages/Login/Login";
+// import Signup from "./pages/Signup/Signup";
 
 function App() {
+  const routes = (
+    <Routes>
+      <Route element={<Home />} path="/" />
+      {/* <Route element={<Login />} path="/login" /> */}
+      {/* <Route element={<Signup />} path="/signup" /> */}
+    </Routes>
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Header /> */}
+      <main className="flex h-screen items-center justify-center">
+        {routes}
+      </main>
+    </>
   );
 }
 
