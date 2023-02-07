@@ -56,7 +56,7 @@ export const AddTask = ({ setNewTasks, isEdit, isCompleted }: Props) => {
         <div className="task">
           {/* <label>Task : </label> */}
           <input
-            className=""
+            className="w-[100%] outline-none border border-[#dedddd] rounded-md px-1 py-4 mb-3 "
             value={enterTask}
             onChange={handleAddTask}
             type="text"
@@ -66,6 +66,7 @@ export const AddTask = ({ setNewTasks, isEdit, isCompleted }: Props) => {
         <div className="date">
           {/* <label htmlFor="date">Date : </label> */}
           <input
+            className="w-[100%] outline-none border border-[#dedddd] rounded-md px-1 py-4 mb-3"
             value={enterDate}
             onChange={handleAddDate}
             type="text"
@@ -73,7 +74,10 @@ export const AddTask = ({ setNewTasks, isEdit, isCompleted }: Props) => {
           />
         </div>
       </div>
-      <button type="submit" className="bg-green-500 text-white p-1">
+      <button
+        type="submit"
+        className="bg-[#3A71CA] text-white  px-4 py-2 rounded-md"
+      >
         Add Task
       </button>
     </form>

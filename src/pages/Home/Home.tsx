@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 import { AddTask } from "../../components/Forms/AuthForm/AddTask";
 
@@ -86,42 +88,45 @@ const Home = () => {
   // };
 
   return (
-    <div className="flex-grow mx-4  bg-white p-10 rounded-lg">
+    <div className="flex-grow h-[700px] overflow-auto mx-10 bg-white p-10 rounded-lg">
       <section className="">
-        <p className="mb-5 text-xl ">My ToDo List</p>
+        <p className="mb-5 text-xl font-bold">My ToDo List</p>
         <AddTask
           isCompleted={onUpdate}
           isEdit={isEdit}
           setNewTasks={setTasks}
         />
       </section>
-      <section>
+      <section className="relative">
         {tasks.map((task) => {
           return (
-            <div key={task.id} className="tasks mb-2 p-3 ">
+            <div key={task.id} className="tasks mb-2 p-3 flex">
               <input
+                className="mr-4"
                 type={"checkbox"}
                 id={task.name + 1}
                 onChange={() => {
                   onUpdate(task.id);
                 }}
               />
-              <p>{task.name}</p>
-              <p>{task.date}</p>
-              <div className="flex flex-row">
+              <div>
+                <p>{task.name}</p>
+                <p className="text-sm">{task.date}</p>
+              </div>
+              <div className="absolute right-0 flex flex-col">
                 <button
                   onClick={() => {
                     onEdit(task.id, task.name, task.date);
                   }}
                 >
-                  Edit
+                  <FontAwesomeIcon icon={faPenToSquare} />
                 </button>
                 <button
                   onClick={() => {
                     onDelete(task.id);
                   }}
                 >
-                  Delete
+                  <FontAwesomeIcon icon={faTrash} className="text-[red] " />
                 </button>
               </div>
             </div>
@@ -130,8 +135,8 @@ const Home = () => {
       </section>
       {/* <button onClick={increase}>+</button>
       <button onClick={decrease}>_</button>
-      <button onClick={reset}>Reset</button> */}
-      {/* <p>{counter}</p> */}
+      <button onClick={reset}>Reset</button>
+      <p>{counter}</p> */}
     </div>
   );
 };
